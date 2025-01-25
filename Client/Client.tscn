@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cymdi6hxe56ch"]
+[gd_scene load_steps=4 format=3 uid="uid://cymdi6hxe56ch"]
 
 [ext_resource type="Script" path="res://Client/client.gd" id="1_lk2s4"]
+[ext_resource type="PackedScene" uid="uid://2fels5wpaloj" path="res://Client/TalkBubble.tscn" id="2_ybukf"]
 
-[node name="Client" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ockf"]
+
+[node name="Client" type="Area2D"]
 script = ExtResource("1_lk2s4")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1ockf")
+
 [node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 
 [node name="Face" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="TalkBubble" parent="." instance=ExtResource("2_ybukf")]
+visible = false
+position = Vector2(-401, -160)
+scale = Vector2(0.2, 0.172)

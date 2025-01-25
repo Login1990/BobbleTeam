@@ -11,8 +11,9 @@ signal clicked(node: Node)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	area.connect("mouse_entered", set_mouse_in)
-	area.connect("mouse_exited", set_mouse_out)
+	pass
+	#area.connect("mouse_entered", set_mouse_in)
+	#area.connect("mouse_exited", set_mouse_out)
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -21,7 +22,7 @@ func _input(event: InputEvent) -> void:
 			print(get_parent().name, " got clicked")
 			if set_global_held:
 				Global.set_held_item(get_parent())
-			
+				
 
 func set_mouse_in():
 	mouse_in = true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://2fels5wpaloj"]
+
+[ext_resource type="Texture2D" uid="uid://b87xxjx2u8d7u" path="res://assets/art/characters/talk_bubble/talk_bubble_1.jpg" id="1_t55q0"]
+[ext_resource type="Script" path="res://Client/talk_bubble.gd" id="2_lcfwh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hyooc"]
+
+[node name="TalkBubble" type="Sprite2D"]
+position = Vector2(2, 2)
+texture = ExtResource("1_t55q0")
+script = ExtResource("2_lcfwh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+material = SubResource("CanvasItemMaterial_hyooc")
+offset_left = -448.0
+offset_top = -510.0
+offset_right = 446.0
+offset_bottom = 480.0
+bbcode_enabled = true
+text = "[font_size=90]Hey, cutie! I would like a fresh buuble tea on blood[/font_size]"
