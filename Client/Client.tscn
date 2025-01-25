@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cymdi6hxe56ch"]
+
+[ext_resource type="Script" path="res://Client/client.gd" id="1_lk2s4"]
+
+[node name="Client" type="Node2D"]
+script = ExtResource("1_lk2s4")
+
+[node name="Body" type="Sprite2D" parent="."]
+
+[node name="Face" type="Sprite2D" parent="."]
