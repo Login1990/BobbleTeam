@@ -2,8 +2,8 @@ extends Node
 class_name ClickableComponent
 
 @export var area: Area2D
-##If you use it for regualar buttons - off, for "draggable" - yes
 @export var set_global_held: bool = false
+##If you use it for regualar buttons - off, for "draggable" - yes
 
 var mouse_in = false
 
