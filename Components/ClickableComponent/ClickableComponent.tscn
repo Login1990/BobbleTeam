@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://co460tmte3fun"]
+
+[ext_resource type="Script" path="res://Components/ClickableComponent/clickable_component.gd" id="1_1h74f"]
+
+[node name="ClickableComponent" type="Node"]
+script = ExtResource("1_1h74f")
