@@ -1,6 +1,6 @@
 extends Node2D
 
-var SPEED = 2
+var SPEED = 500
 var client_index = 0
 @onready var body = $Body
 @onready var face = $Face
@@ -11,11 +11,10 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if walk:
-		print("WALK")
-		position.x -= SPEED
-		position.y += 0.7 * sin(0.015 * position.x)
+		position.x -= delta * SPEED
+		position.y += 2 * sin(0.02 * position.x)
 	
 func build():
 	body.texture = load("res://assets/art/characters/body/body_%s.jpg" % client_index)
