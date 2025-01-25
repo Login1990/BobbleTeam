@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ble57rdjd4717"]
+
+[ext_resource type="Script" path="res://Cup/cup.gd" id="1_5e8uq"]
+
+[node name="Cup" type="Node2D"]
+script = ExtResource("1_5e8uq")
