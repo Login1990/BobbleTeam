@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://hdw8ly35o2mj"]
+
+[ext_resource type="Script" path="res://Dumpster/dumpster.gd" id="1_4kqac"]
+[ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="2_8d06j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg22i"]
+size = Vector2(63, 66)
+
+[node name="Dumpster" type="Area2D"]
+script = ExtResource("1_4kqac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wg22i")
+
+[node name="ClickableComponent" parent="." node_paths=PackedStringArray("area") instance=ExtResource("2_8d06j")]
+area = NodePath("")
+
+[connection signal="clicked" from="ClickableComponent" to="." method="dump"]
