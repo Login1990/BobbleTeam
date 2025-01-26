@@ -7,7 +7,7 @@ class_name Cup
 @export var milk_filter: Sprite2D
 @export var ice_filter: Sprite2D
 
-var topping_array = [Global.topping_type]
+var topping_array: Array[Global.topping_type]
 
 var has_ice = false
 var has_milk = false

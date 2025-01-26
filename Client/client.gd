@@ -7,15 +7,21 @@ var client_index = 0
 @onready var talk_bubble = $TalkBubble
 var phase = "IDLE"
 var drinks = {
-	1: 0,
+	1: [Global.liquid_type.COFFEE, [Global.topping_type.FRUIT]],
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
-func recieve_drink(drink):
-	pass
+func recieve_drink(drink:Cup):
+	var ingr = drinks[client_index]
+	print("LETSGOOOOO")
+	if drink.liquid == ingr[0] and drink.topping_array == ingr[1]:
+		talk_bubble.set_speak_phase("CORRECT") 
+	else:
+		talk_bubble.set_speak_phase("WRONG")
+	talk_bubble.next()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
