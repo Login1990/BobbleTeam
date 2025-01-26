@@ -7,15 +7,17 @@
 [ext_resource type="Script" path="res://LiquidTap/LiquidButton/liquid_button.gd" id="3_lghm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jq68"]
+size = Vector2(24, 37.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jhng"]
-size = Vector2(51, 56)
+size = Vector2(51, 92)
 
 [node name="Liquid Tap" type="Node2D" node_paths=PackedStringArray("cup_holder")]
 script = ExtResource("1_7dw1s")
 cup_holder = NodePath("CupPlace/PlacableComponent")
 
 [node name="TapBack" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(93.5, 122.5)
 scale = Vector2(1.44531, 1.89844)
 texture = ExtResource("2_fulan")

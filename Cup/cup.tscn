@@ -1,14 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://ble57rdjd4717"]
+[gd_scene load_steps=17 format=3 uid="uid://ble57rdjd4717"]
 
 [ext_resource type="Script" path="res://Cup/cup.gd" id="1_5e8uq"]
-[ext_resource type="Texture2D" uid="uid://cm4mnuj1egvdx" path="res://Dummy Assets/1_0000_Ice.png" id="2_xbhpc"]
-[ext_resource type="Texture2D" uid="uid://btues16q86dix" path="res://Dummy Assets/1_0002_Coffee.png" id="3_lmlf8"]
-[ext_resource type="Texture2D" uid="uid://l046e600shi1" path="res://Dummy Assets/1_0001_Cup.png" id="4_pysem"]
+[ext_resource type="Texture2D" uid="uid://33lqjgjfp5qx" path="res://assets/cup/cup_0005_COFFEE.png" id="2_k5uat"]
+[ext_resource type="Texture2D" uid="uid://ddtgojnccyvah" path="res://assets/cup/cup_0000_ENERGY_DRINK.png" id="3_107ts"]
+[ext_resource type="Texture2D" uid="uid://b8fpuahol2wgq" path="res://assets/cup/cup_0010_SPIDERS.png" id="3_us0vw"]
+[ext_resource type="Texture2D" uid="uid://j0353jca1dsa" path="res://assets/cup/cup_0003_BLOOD.png" id="4_0ux71"]
+[ext_resource type="Texture2D" uid="uid://dyapjsod7xht2" path="res://assets/cup/cup_0007_ICE.png" id="5_4y6ge"]
+[ext_resource type="Texture2D" uid="uid://bi8y8p1trqif4" path="res://assets/cup/cup_0004_ACID.png" id="5_a7qcm"]
+[ext_resource type="Texture2D" uid="uid://d2otmommhtris" path="res://assets/cup/cup_0013_FRUIT.png" id="5_pxbfu"]
 [ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="5_u3t0t"]
-[ext_resource type="Texture2D" uid="uid://wyaxgyh5oi54" path="res://Dummy Assets/dummy_coffee_0002_Coffee.png" id="6_oa88l"]
+[ext_resource type="Texture2D" uid="uid://6f6yt4npdbxd" path="res://assets/cup/cup_0002_CUP.png" id="6_57qwa"]
+[ext_resource type="Texture2D" uid="uid://di2c2slv1f72r" path="res://assets/cup/cup_0009_SLIME.png" id="6_ex0vt"]
+[ext_resource type="Texture2D" uid="uid://cg0lqes05fdup" path="res://assets/cup/cup_0006_MILK.png" id="7_1gkc4"]
+[ext_resource type="Texture2D" uid="uid://cu2kahlkcq6ej" path="res://assets/cup/cup_0011_BLOOD_BALLS.png" id="7_lkvhh"]
+[ext_resource type="Texture2D" uid="uid://cnyfhpqi8a4m4" path="res://assets/cup/cup_0012_TEETH.png" id="8_baaaa"]
+[ext_resource type="Texture2D" uid="uid://bp2wmnhtlwlrt" path="res://assets/cup/cup_0008_EYES.png" id="9_mnf47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3mwo"]
-size = Vector2(65, 94)
+size = Vector2(143, 203)
 
 [node name="Cup" type="Area2D" node_paths=PackedStringArray("liquids_node", "toppings_node", "milk_filter", "ice_filter") groups=["Cup"]]
 script = ExtResource("1_5e8uq")
@@ -21,31 +30,71 @@ ice_filter = NodePath("Topping/ICE")
 shape = SubResource("RectangleShape2D_g3mwo")
 
 [node name="Liquids" type="Node2D" parent="."]
-scale = Vector2(0.1, 0.1)
 
 [node name="COFFEE" type="Sprite2D" parent="Liquids"]
 visible = false
-position = Vector2(2, 79)
-texture = ExtResource("3_lmlf8")
+position = Vector2(0, 20)
+texture = ExtResource("2_k5uat")
+
+[node name="ENERGY_DRINK" type="Sprite2D" parent="Liquids"]
+visible = false
+position = Vector2(0, 20)
+texture = ExtResource("3_107ts")
+
+[node name="BLOOD" type="Sprite2D" parent="Liquids"]
+visible = false
+position = Vector2(0, 20)
+texture = ExtResource("4_0ux71")
+
+[node name="ACID" type="Sprite2D" parent="Liquids"]
+visible = false
+position = Vector2(0, 20)
+texture = ExtResource("5_a7qcm")
 
 [node name="Topping" type="Node2D" parent="."]
-scale = Vector2(0.1, 0.1)
 
-[node name="ICE" type="Sprite2D" parent="Topping"]
+[node name="SPIDERS" type="Sprite2D" parent="Topping"]
 visible = false
-position = Vector2(1.49012e-08, 80)
-texture = ExtResource("2_xbhpc")
+position = Vector2(0, 60)
+texture = ExtResource("3_us0vw")
+
+[node name="FRUIT" type="Sprite2D" parent="Topping"]
+visible = false
+position = Vector2(0, 60)
+texture = ExtResource("5_pxbfu")
+
+[node name="SLIME" type="Sprite2D" parent="Topping"]
+visible = false
+position = Vector2(0, 60)
+texture = ExtResource("6_ex0vt")
+
+[node name="BLOOD_BALL" type="Sprite2D" parent="Topping"]
+visible = false
+position = Vector2(-5, 60)
+texture = ExtResource("7_lkvhh")
+
+[node name="TEETH" type="Sprite2D" parent="Topping"]
+visible = false
+position = Vector2(0, 60)
+texture = ExtResource("8_baaaa")
+
+[node name="EYES" type="Sprite2D" parent="Topping"]
+visible = false
+position = Vector2(-1, 65)
+texture = ExtResource("9_mnf47")
 
 [node name="MILK" type="Sprite2D" parent="Topping"]
 visible = false
-position = Vector2(0, 80)
-scale = Vector2(1, 1)
-texture = ExtResource("6_oa88l")
+position = Vector2(-1, 40)
+texture = ExtResource("7_1gkc4")
+
+[node name="ICE" type="Sprite2D" parent="Topping"]
+visible = false
+texture = ExtResource("5_4y6ge")
 
 [node name="ClickableComponent" parent="." node_paths=PackedStringArray("area") instance=ExtResource("5_u3t0t")]
 area = NodePath("..")
 set_global_held = true
 
 [node name="Cup" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_pysem")
+texture = ExtResource("6_57qwa")

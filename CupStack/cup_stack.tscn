@@ -6,13 +6,14 @@
 [ext_resource type="Script" path="res://Components/ClickableComponent/clickable_component.gd" id="3_84j6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_di6gh"]
-size = Vector2(130, 638)
+size = Vector2(130, 745)
 
 [node name="CupStack" type="Node2D"]
 script = ExtResource("1_s2sf4")
 packed_cup = ExtResource("2_45k70")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(1, 4.97386)
 texture = ExtResource("2_w57st")
 
@@ -23,7 +24,6 @@ area = NodePath("../Area2D")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_di6gh")
 
 [connection signal="clicked" from="ClickableComponent" to="." method="spawn_cup"]
