@@ -21,16 +21,17 @@ func _on_timer_timeout():
 	char_counter += 1
 	
 func _on_character_left():
-	spawn_character()
-	char_counter += 1
+	if (char_counter != 5):
+		spawn_character()
+		char_counter += 1
 	
 func spawn_character():
 	print()
 	var character = ResourceLoader.load("res://Client/Client.tscn")
 	var inst_char = character.instantiate()
 	parent_path.add_child(inst_char)
-	get_parent().client = inst_char
+	#get_parent() = inst_char
 	inst_char.client_index = char_counter
-	inst_char.position = Vector2(1370, 400)
+	inst_char.position = Vector2(2070, 700)
 	inst_char.build()
 	

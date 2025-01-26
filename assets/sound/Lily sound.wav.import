@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4u4kk0h6r43e"
+path="res://.godot/imported/Lily sound.wav-7d343e679138587941f85d25804ebae3.sample"
+
+[deps]
+
+source_file="res://assets/sound/Lily sound.wav"
+dest_files=["res://.godot/imported/Lily sound.wav-7d343e679138587941f85d25804ebae3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

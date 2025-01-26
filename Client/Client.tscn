@@ -1,34 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://cymdi6hxe56ch"]
+[gd_scene load_steps=6 format=3 uid="uid://cymdi6hxe56ch"]
 
 [ext_resource type="Script" path="res://Client/client.gd" id="1_lk2s4"]
-[ext_resource type="Texture2D" uid="uid://b8ytv4n7xtu7e" path="res://assets/art/characters/body/body_1.jpg" id="2_u6lm3"]
+[ext_resource type="Texture2D" uid="uid://dwhvhoouo22nf" path="res://assets/art/characters/body/body_1.png" id="2_h50o8"]
 [ext_resource type="PackedScene" uid="uid://bme7xx8b1qeqs" path="res://Client/TalkBubble.tscn" id="2_ybukf"]
+[ext_resource type="Texture2D" uid="uid://cteri12ht4gfb" path="res://assets/art/characters/face/face_1_neutral.png" id="3_0ak6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ockf"]
-size = Vector2(486.5, 640.5)
+size = Vector2(509.958, 877.903)
 
 [node name="Client" type="Area2D"]
+scale = Vector2(0.9, 0.9)
 script = ExtResource("1_lk2s4")
 
 [node name="Body" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_u6lm3")
+position = Vector2(-321, -3)
+texture = ExtResource("2_h50o8")
 
 [node name="Face" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.2, 0.2)
+position = Vector2(-321, -3)
+texture = ExtResource("3_0ak6f")
 
 [node name="TalkBubble" parent="." instance=ExtResource("2_ybukf")]
 visible = false
 texture_filter = 1
-position = Vector2(-401, -160)
-scale = Vector2(0.2, 0.172)
+position = Vector2(-425.556, -183.333)
+scale = Vector2(0.983319, 1.08976)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(0.25098, 1, 1, 1)
 self_modulate = Color(0.158419, 0.0698837, 0.0153934, 1)
-position = Vector2(0.75, 1.75)
+position = Vector2(301.111, 56.6667)
 shape = SubResource("RectangleShape2D_1ockf")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
