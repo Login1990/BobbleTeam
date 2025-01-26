@@ -161,7 +161,7 @@ autoplay = true
 
 [node name="AudioStreamPlayerRegister" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yqowu")
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
 
 [node name="Dumpster" parent="." instance=ExtResource("12_qd1t0")]
