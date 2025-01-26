@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv5sumo8tprxh"]
+[gd_scene load_steps=14 format=3 uid="uid://dv5sumo8tprxh"]
 
 [ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="1_o8cp5"]
 [ext_resource type="Texture2D" uid="uid://crkjgb1sh0jij" path="res://assets/background/kitchen_color.jpg" id="1_qrhv1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bigbb8f1ssxmm" path="res://ToppingBox/topping_box.tscn" id="6_iq8dx"]
 [ext_resource type="PackedScene" uid="uid://c43swkhwe4pr" path="res://Components/PlacableComponent/placable_component.tscn" id="6_t4qln"]
 [ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="7_4lbby"]
+[ext_resource type="PackedScene" uid="uid://hdw8ly35o2mj" path="res://Dumpster/dumpster.tscn" id="12_qd1t0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uy5e"]
 size = Vector2(226, 235)
@@ -162,6 +163,11 @@ autoplay = true
 stream = ExtResource("4_yqowu")
 volume_db = -10.0
 autoplay = true
+
+[node name="Dumpster" parent="." instance=ExtResource("12_qd1t0")]
+position = Vector2(2452, 1030)
+rotation = 0.00179131
+scale = Vector2(1.108, 1.28788)
 
 [connection signal="pressed" from="ScreenToRightButton" to="CameraController" method="switch_to_right"]
 [connection signal="pressed" from="ScreenToLeftButton" to="CameraController" method="switch_to_left"]
