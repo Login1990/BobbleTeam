@@ -1,13 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv5sumo8tprxh"]
+[gd_scene load_steps=20 format=3 uid="uid://dv5sumo8tprxh"]
 
 [ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="1_o8cp5"]
 [ext_resource type="Texture2D" uid="uid://crkjgb1sh0jij" path="res://assets/background/kitchen_color.jpg" id="1_qrhv1"]
 [ext_resource type="PackedScene" uid="uid://dyiri3x476xy8" path="res://Register/Register.tscn" id="1_qwkji"]
 [ext_resource type="Script" path="res://Screens/CameraController/camera_controller.gd" id="2_l77n0"]
 [ext_resource type="AudioStream" uid="uid://wja33sjb8ndo" path="res://assets/music/GameJam with effect.wav" id="3_8c0h0"]
+[ext_resource type="Texture2D" uid="uid://1lsv0jukylh7" path="res://assets/ui/STRELOK_0001_TO_LEFT.png" id="4_cd217"]
 [ext_resource type="PackedScene" uid="uid://d4d5u8e63mpv8" path="res://LiquidTap/liquid_tap.tscn" id="4_v5kjy"]
 [ext_resource type="AudioStream" uid="uid://bhy76xf0wp3ug" path="res://assets/music/GameJam without effect.wav" id="4_yqowu"]
 [ext_resource type="PackedScene" uid="uid://c3im4ofq2eoua" path="res://CupStack/cup_stack.tscn" id="5_4v4nv"]
+[ext_resource type="Texture2D" uid="uid://b7qhsr8ds3e5q" path="res://assets/ui/STRELOK_0000_TO_RIGHT.png" id="5_r11tp"]
 [ext_resource type="PackedScene" uid="uid://bigbb8f1ssxmm" path="res://ToppingBox/topping_box.tscn" id="6_iq8dx"]
 [ext_resource type="PackedScene" uid="uid://c43swkhwe4pr" path="res://Components/PlacableComponent/placable_component.tscn" id="6_t4qln"]
 [ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="7_4lbby"]
@@ -40,21 +42,23 @@ texture = ExtResource("1_o8cp5")
 anchor_mode = 0
 
 [node name="ScreenToRightButton" type="Button" parent="."]
-offset_left = 1769.0
+offset_left = 1659.0
 offset_top = 19.0
 offset_right = 1891.0
-offset_bottom = 141.0
+offset_bottom = 251.0
 mouse_filter = 1
-icon = ExtResource("1_o8cp5")
+icon = ExtResource("4_cd217")
+flat = true
 expand_icon = true
 
 [node name="ScreenToLeftButton" type="Button" parent="."]
 offset_left = 1961.0
 offset_top = 22.0
-offset_right = 2083.0
-offset_bottom = 144.0
+offset_right = 2197.0
+offset_bottom = 258.0
 mouse_filter = 1
-icon = ExtResource("1_o8cp5")
+icon = ExtResource("5_r11tp")
+flat = true
 expand_icon = true
 
 [node name="CameraController" type="Node" parent="." node_paths=PackedStringArray("camera", "kitchenMusic", "registerMusic")]
