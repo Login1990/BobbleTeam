@@ -7,6 +7,8 @@ var fill_color: Color = Color(1, 0, 0, 1) # Default fill color
 var is_filled: bool = false
 var placed_in_item: Node = null
 
+signal drink_placed
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.connect("highlight_placable_spots", fill_the_shape)
@@ -30,6 +32,7 @@ func place_item(node: Node) -> void:
 		held_item.global_position = area.global_position
 		placed_in_item = held_item
 		Global.emit_signal("free_other_placable_spots", self)
+		emit_signal("drink_placed")
 		Global.set_held_item(null)
 		area.monitoring = false
 		area.monitorable = false

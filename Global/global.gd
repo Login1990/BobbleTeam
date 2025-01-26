@@ -6,6 +6,7 @@ signal free_other_placable_spots(node: Node)
 #Placable spot keep reference to item held within, so when we move it,
 #we basically tell all other placable components to clear that reference
 signal re_enable_clickable
+signal cup_placed_in_front_customer(cup: Cup)
 
 enum liquid_type {
 	ENERGY_DRINK,

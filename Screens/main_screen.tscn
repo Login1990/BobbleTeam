@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dv5sumo8tprxh"]
+[gd_scene load_steps=18 format=3 uid="uid://dv5sumo8tprxh"]
 
 [ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="1_o8cp5"]
 [ext_resource type="Texture2D" uid="uid://crkjgb1sh0jij" path="res://assets/background/kitchen_color.jpg" id="1_qrhv1"]
@@ -12,9 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://c43swkhwe4pr" path="res://Components/PlacableComponent/placable_component.tscn" id="6_t4qln"]
 [ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="7_4lbby"]
 [ext_resource type="PackedScene" uid="uid://hdw8ly35o2mj" path="res://Dumpster/dumpster.tscn" id="12_qd1t0"]
+[ext_resource type="Script" path="res://Components/PlacableComponent/placable_component.gd" id="13_6cswe"]
+[ext_resource type="Script" path="res://Screens/client_cup_stand.gd" id="13_ixsa7"]
+[ext_resource type="Script" path="res://Components/ClickableComponent/clickable_component.gd" id="14_q2cd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uy5e"]
 size = Vector2(226, 235)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qa57"]
+size = Vector2(70, 70)
 
 [node name="MainScreen" type="Node2D"]
 
@@ -169,8 +175,27 @@ position = Vector2(2452, 1030)
 rotation = 0.00179131
 scale = Vector2(1.108, 1.28788)
 
+[node name="ClientCupStand" type="Area2D" parent="." node_paths=PackedStringArray("placable")]
+position = Vector2(1019, 905)
+script = ExtResource("13_ixsa7")
+placable = NodePath("PlacableComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClientCupStand"]
+shape = SubResource("RectangleShape2D_8qa57")
+
+[node name="PlacableComponent" type="Node2D" parent="ClientCupStand" node_paths=PackedStringArray("area")]
+script = ExtResource("13_6cswe")
+area = NodePath("..")
+
+[node name="ClickableComponent" type="Node" parent="ClientCupStand" node_paths=PackedStringArray("area")]
+script = ExtResource("14_q2cd6")
+area = NodePath("..")
+click_type = 2
+
 [connection signal="pressed" from="ScreenToRightButton" to="CameraController" method="switch_to_right"]
 [connection signal="pressed" from="ScreenToLeftButton" to="CameraController" method="switch_to_left"]
 [connection signal="clicked" from="CupStand/ClickableComponent" to="CupStand/PlacableComponent" method="place_item"]
+[connection signal="drink_placed" from="ClientCupStand/PlacableComponent" to="ClientCupStand" method="send_signal_to_client"]
+[connection signal="clicked" from="ClientCupStand/ClickableComponent" to="ClientCupStand/PlacableComponent" method="place_item"]
 
 [editable path="Liquid Tap"]
