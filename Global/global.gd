@@ -18,7 +18,8 @@ enum liquid_type {
 enum topping_type {
 	EYES,
 	TEETH,
-	ICE
+	ICE,
+	MILK,
 }
 
 var held_item: Node :

@@ -10,11 +10,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3mwo"]
 size = Vector2(65, 94)
 
-[node name="Cup" type="Area2D" node_paths=PackedStringArray("liquids_node", "toppings_node", "milk_filter") groups=["Cup"]]
+[node name="Cup" type="Area2D" node_paths=PackedStringArray("liquids_node", "toppings_node", "milk_filter", "ice_filter") groups=["Cup"]]
 script = ExtResource("1_5e8uq")
 liquids_node = NodePath("Liquids")
 toppings_node = NodePath("Topping")
-milk_filter = NodePath("Milk Filter")
+milk_filter = NodePath("Topping/MILK")
+ice_filter = NodePath("Topping/ICE")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g3mwo")
@@ -35,15 +36,15 @@ visible = false
 position = Vector2(1.49012e-08, 80)
 texture = ExtResource("2_xbhpc")
 
+[node name="MILK" type="Sprite2D" parent="Topping"]
+visible = false
+position = Vector2(0, 80)
+scale = Vector2(1, 1)
+texture = ExtResource("6_oa88l")
+
 [node name="ClickableComponent" parent="." node_paths=PackedStringArray("area") instance=ExtResource("5_u3t0t")]
 area = NodePath("..")
 set_global_held = true
-
-[node name="Milk Filter" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 8)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_oa88l")
 
 [node name="Cup" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)

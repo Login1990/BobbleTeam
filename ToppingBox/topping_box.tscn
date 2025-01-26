@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bigbb8f1ssxmm"]
+
+[ext_resource type="Script" path="res://ToppingBox/topping_box.gd" id="1_hgkww"]
+[ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="2_osybp"]
+[ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="3_1igy6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwhad"]
+size = Vector2(54, 16)
+
+[node name="ToppingBox" type="Node2D"]
+script = ExtResource("1_hgkww")
+topping_type = 2
+
+[node name="ClickableComponent" parent="." node_paths=PackedStringArray("area") instance=ExtResource("2_osybp")]
+area = NodePath("../Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.409362, 0.104928)
+texture = ExtResource("3_1igy6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qwhad")
+
+[connection signal="clicked" from="ClickableComponent" to="." method="add_topping"]
