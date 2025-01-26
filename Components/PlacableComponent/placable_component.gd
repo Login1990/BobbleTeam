@@ -33,6 +33,15 @@ func place_item(node: Node) -> void:
 		Global.set_held_item(null)
 		area.monitoring = false
 		area.monitorable = false
+
+func spawn_in_item(node: Node) -> void:
+	var held_item = node
+	held_item.global_position = area.global_position
+	placed_in_item = held_item
+	Global.emit_signal("free_other_placable_spots", self)
+	Global.set_held_item(null)
+	area.monitoring = false
+	area.monitorable = false
 		
 func get_item_in_placed_area():
 	return placed_in_item

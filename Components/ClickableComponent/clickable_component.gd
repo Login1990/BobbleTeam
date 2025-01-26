@@ -17,7 +17,7 @@ signal clicked(node: Node)
 func _ready() -> void:
 	Global.connect("re_enable_clickable", enable_clickable)
 	area.connect("mouse_entered", set_mouse_in)
-	area.connect("mouse_exited", set_mouse_out)	
+	area.connect("mouse_exited", set_mouse_out)
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
