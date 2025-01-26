@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3mwo"]
 size = Vector2(65, 94)
 
-[node name="Cup" type="Area2D" node_paths=PackedStringArray("liquids_node", "toppings_node", "milk_filter")]
+[node name="Cup" type="Area2D" node_paths=PackedStringArray("liquids_node", "toppings_node", "milk_filter") groups=["Cup"]]
 script = ExtResource("1_5e8uq")
 liquids_node = NodePath("Liquids")
 toppings_node = NodePath("Topping")

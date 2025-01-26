@@ -1,15 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv5sumo8tprxh"]
+[gd_scene load_steps=3 format=3 uid="uid://dv5sumo8tprxh"]
 
 [ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="1_o8cp5"]
+[ext_resource type="Script" path="res://Screens/CameraController/camera_controller.gd" id="2_l77n0"]
 
 [node name="MainScreen" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 323.5)
-scale = Vector2(8.9375, 5.00781)
+position = Vector2(962.5, 540.061)
+scale = Vector2(14.9766, 8.39158)
 texture = ExtResource("1_o8cp5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1723, 323)
-scale = Vector2(8.9375, 5.00781)
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(128.234, -0.00732429)
 texture = ExtResource("1_o8cp5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1303, 298)
+texture = ExtResource("1_o8cp5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="ScreenToRightButton" type="Button" parent="."]
+offset_left = 1760.0
+offset_top = 543.0
+offset_right = 1882.0
+offset_bottom = 665.0
+mouse_filter = 1
+icon = ExtResource("1_o8cp5")
+expand_icon = true
+
+[node name="ScreenToLeftButton" type="Button" parent="."]
+offset_left = 1961.0
+offset_top = 538.0
+offset_right = 2083.0
+offset_bottom = 660.0
+mouse_filter = 1
+icon = ExtResource("1_o8cp5")
+expand_icon = true
+
+[node name="CameraController" type="Node" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("2_l77n0")
+camera = NodePath("../Camera2D")
+
+[connection signal="pressed" from="ScreenToRightButton" to="CameraController" method="switch_to_right"]
+[connection signal="pressed" from="ScreenToLeftButton" to="CameraController" method="switch_to_left"]

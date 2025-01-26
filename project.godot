@@ -18,3 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Global/global.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[global_group]
+
+Cup="Only cups allowed"
