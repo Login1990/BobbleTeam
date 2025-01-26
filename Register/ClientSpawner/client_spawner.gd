@@ -31,6 +31,6 @@ func spawn_character():
 	parent_path.add_child(inst_char)
 	get_parent().client = inst_char
 	inst_char.client_index = char_counter
-	inst_char.position = Vector2(1370, 500)
+	inst_char.position = Vector2(1370, 400)
 	inst_char.build()
 	

@@ -1,23 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://cymdi6hxe56ch"]
+[gd_scene load_steps=5 format=3 uid="uid://cymdi6hxe56ch"]
 
 [ext_resource type="Script" path="res://Client/client.gd" id="1_lk2s4"]
-[ext_resource type="PackedScene" uid="uid://2fels5wpaloj" path="res://Client/TalkBubble.tscn" id="2_ybukf"]
+[ext_resource type="Texture2D" uid="uid://b8ytv4n7xtu7e" path="res://assets/art/characters/body/body_1.jpg" id="2_u6lm3"]
+[ext_resource type="PackedScene" uid="uid://bme7xx8b1qeqs" path="res://Client/TalkBubble.tscn" id="2_ybukf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ockf"]
+size = Vector2(486.5, 640.5)
 
 [node name="Client" type="Area2D"]
 script = ExtResource("1_lk2s4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1ockf")
-
 [node name="Body" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_u6lm3")
 
 [node name="Face" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(0.2, 0.2)
 
 [node name="TalkBubble" parent="." instance=ExtResource("2_ybukf")]
 visible = false
+texture_filter = 1
 position = Vector2(-401, -160)
 scale = Vector2(0.2, 0.172)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0.25098, 1, 1, 1)
+self_modulate = Color(0.158419, 0.0698837, 0.0153934, 1)
+position = Vector2(0.75, 1.75)
+shape = SubResource("RectangleShape2D_1ockf")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

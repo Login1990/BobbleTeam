@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://2fels5wpaloj"]
+[gd_scene load_steps=5 format=3 uid="uid://bme7xx8b1qeqs"]
 
 [ext_resource type="Texture2D" uid="uid://b87xxjx2u8d7u" path="res://assets/art/characters/talk_bubble/talk_bubble_1.jpg" id="1_t55q0"]
 [ext_resource type="Script" path="res://Client/talk_bubble.gd" id="2_lcfwh"]
+[ext_resource type="FontFile" uid="uid://bs3e2abq8n82o" path="res://assets/font/Boxiest-Regular.ttf" id="3_2dr66"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hyooc"]
 
@@ -16,5 +17,7 @@ offset_left = -448.0
 offset_top = -510.0
 offset_right = 446.0
 offset_bottom = 480.0
+theme_override_fonts/normal_font = ExtResource("3_2dr66")
 bbcode_enabled = true
 text = "[font_size=90]Hey, cutie! I would like a fresh buuble tea on blood[/font_size]"
+visible_characters_behavior = 1
