@@ -1,17 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv5sumo8tprxh"]
+[gd_scene load_steps=10 format=3 uid="uid://dv5sumo8tprxh"]
 
 [ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="1_o8cp5"]
+[ext_resource type="Texture2D" uid="uid://crkjgb1sh0jij" path="res://assets/background/kitchen_color.jpg" id="1_qrhv1"]
 [ext_resource type="Script" path="res://Screens/CameraController/camera_controller.gd" id="2_l77n0"]
+[ext_resource type="PackedScene" uid="uid://d4d5u8e63mpv8" path="res://LiquidTap/liquid_tap.tscn" id="4_v5kjy"]
+[ext_resource type="PackedScene" uid="uid://c3im4ofq2eoua" path="res://CupStack/cup_stack.tscn" id="5_4v4nv"]
+[ext_resource type="PackedScene" uid="uid://bigbb8f1ssxmm" path="res://ToppingBox/topping_box.tscn" id="6_iq8dx"]
+[ext_resource type="PackedScene" uid="uid://c43swkhwe4pr" path="res://Components/PlacableComponent/placable_component.tscn" id="6_t4qln"]
+[ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="7_4lbby"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0uy5e"]
+size = Vector2(226, 235)
 
 [node name="MainScreen" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2880, 542)
+texture = ExtResource("1_qrhv1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2883.01, 540)
+scale = Vector2(14.9766, 8.39158)
+texture = ExtResource("1_o8cp5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(962.5, 540.061)
 scale = Vector2(14.9766, 8.39158)
-texture = ExtResource("1_o8cp5")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(128.234, -0.00732429)
 texture = ExtResource("1_o8cp5")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
@@ -43,5 +58,102 @@ expand_icon = true
 script = ExtResource("2_l77n0")
 camera = NodePath("../Camera2D")
 
+[node name="Liquid Tap" parent="." instance=ExtResource("4_v5kjy")]
+position = Vector2(2332, 568)
+
+[node name="LiquidButton" parent="Liquid Tap" index="1"]
+position = Vector2(31, -8)
+
+[node name="Sprite2D" parent="Liquid Tap/LiquidButton" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Liquid Tap/LiquidButton" index="2"]
+position = Vector2(-1, 0)
+
+[node name="LiquidButton2" parent="Liquid Tap" index="2"]
+position = Vector2(76, -8)
+
+[node name="Sprite2D" parent="Liquid Tap/LiquidButton2" index="1"]
+visible = false
+
+[node name="LiquidButton3" parent="Liquid Tap" index="3"]
+position = Vector2(122, -8)
+
+[node name="Sprite2D" parent="Liquid Tap/LiquidButton3" index="1"]
+visible = false
+
+[node name="LiquidButton4" parent="Liquid Tap" index="4"]
+position = Vector2(168, -8)
+
+[node name="Sprite2D" parent="Liquid Tap/LiquidButton4" index="1"]
+visible = false
+
+[node name="CupPlace" parent="Liquid Tap" index="5"]
+position = Vector2(95, 175)
+
+[node name="Sprite2D" parent="Liquid Tap" index="6"]
+visible = false
+
+[node name="CupStack" parent="." node_paths=PackedStringArray("spawn_platform") instance=ExtResource("5_4v4nv")]
+position = Vector2(3295, 471)
+spawn_platform = NodePath("../CupStand/PlacableComponent")
+
+[node name="ToppingBox2" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(2916, 715)
+scale = Vector2(2.12935, -3.4011)
+topping_type = 1
+
+[node name="ToppingBox" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(2776, 708)
+scale = Vector2(2.0748, 3.67031)
+topping_type = 4
+
+[node name="CupStand" type="Area2D" parent="."]
+position = Vector2(3664, 877)
+
+[node name="PlacableComponent" parent="CupStand" node_paths=PackedStringArray("area") instance=ExtResource("6_t4qln")]
+position = Vector2(0, -1)
+area = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupStand"]
+position = Vector2(4, -101.5)
+shape = SubResource("RectangleShape2D_0uy5e")
+
+[node name="ClickableComponent" parent="CupStand" node_paths=PackedStringArray("area") instance=ExtResource("7_4lbby")]
+area = NodePath("..")
+click_type = 2
+
+[node name="ToppingBox3" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(3056, 707)
+scale = Vector2(2.0748, 3.67031)
+topping_type = 7
+
+[node name="ToppingBox4" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(2792, 639)
+scale = Vector2(2.0748, 3.67031)
+
+[node name="ToppingBox5" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(2910, 641)
+scale = Vector2(2.0748, 3.67031)
+topping_type = 5
+
+[node name="ToppingBox6" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(3042, 641)
+scale = Vector2(2.0748, 3.67031)
+topping_type = 6
+
+[node name="ToppingBox7" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(2619, 436)
+scale = Vector2(2.0748, 3.67031)
+topping_type = 2
+
+[node name="ToppingBox8" parent="." instance=ExtResource("6_iq8dx")]
+position = Vector2(2647, 254)
+scale = Vector2(1.76547, 7.39072)
+topping_type = 3
+
 [connection signal="pressed" from="ScreenToRightButton" to="CameraController" method="switch_to_right"]
 [connection signal="pressed" from="ScreenToLeftButton" to="CameraController" method="switch_to_left"]
+[connection signal="clicked" from="CupStand/ClickableComponent" to="CupStand/PlacableComponent" method="place_item"]
+
+[editable path="Liquid Tap"]

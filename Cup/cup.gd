@@ -16,7 +16,6 @@ var has_other_topping = false
 # Called when the node enters the scene tree for the first time.
 
 func add_topping(topping: Global.topping_type):
-	topping_array.append(topping)
 	match topping:
 		Global.topping_type.MILK:
 			if has_milk == false:
@@ -27,8 +26,10 @@ func add_topping(topping: Global.topping_type):
 				add_ice()
 				has_ice = true
 		_:
+			#breakpoint
 			if has_other_topping == false:
-				_enable_liquid(Global.topping_type.find_key(topping))
+				topping_array.append(topping)
+				_enable_topping(Global.topping_type.find_key(topping))
 				has_other_topping = true
 	
 	

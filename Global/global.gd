@@ -20,6 +20,10 @@ enum topping_type {
 	TEETH,
 	ICE,
 	MILK,
+	BLOOD_BALL,
+	SLIME,
+	SPIDERS,
+	FRUIT
 }
 
 var held_item: Node :
