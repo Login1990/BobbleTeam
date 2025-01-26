@@ -7,11 +7,11 @@ extends Node
 func switch_to_left():
 	camera.position.x = 0
 	camera.position.y = 0
-	registerMusic.volume_db = -10.0
+	registerMusic.volume_db = -20.0
 	kitchenMusic.volume_db = -80.0
 
 func switch_to_right():
 	camera.position.x = 1920
 	camera.position.y = 0
-	kitchenMusic.volume_db = -10.0
+	kitchenMusic.volume_db = -20.0
 	registerMusic.volume_db = -80.0
