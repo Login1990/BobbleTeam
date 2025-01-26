@@ -21,3 +21,8 @@ theme_override_fonts/normal_font = ExtResource("3_2dr66")
 bbcode_enabled = true
 text = "[font_size=90]Hey, cutie! I would like a fresh buuble tea on blood[/font_size]"
 visible_characters_behavior = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

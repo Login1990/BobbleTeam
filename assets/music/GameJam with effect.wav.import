@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wja33sjb8ndo"
+path="res://.godot/imported/GameJam with effect.wav-61aad7ec44ff8de8852663c11e9c5f7b.sample"
+
+[deps]
+
+source_file="res://assets/music/GameJam with effect.wav"
+dest_files=["res://.godot/imported/GameJam with effect.wav-61aad7ec44ff8de8852663c11e9c5f7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
