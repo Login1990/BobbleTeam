@@ -1,4 +1,5 @@
 extends Node2D
+class_name PlacableComponent
 
 @export var area: Area2D
 
@@ -30,12 +31,16 @@ func place_item(node: Node) -> void:
 		placed_in_item = held_item
 		Global.emit_signal("free_other_placable_spots", self)
 		Global.set_held_item(null)
+		area.monitoring = false
+		area.monitorable = false
 		
 func get_item_in_placed_area():
 	return placed_in_item
 		
 func free_item(node: Node):
 	if node != self:
+		area.monitoring = true
+		area.monitorable = true
 		placed_in_item = null
 	
 func _draw():
@@ -55,11 +60,3 @@ func get_collision_shape():
 	if collision_shape and collision_shape.shape:
 		return collision_shape.shape
 	return null
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_clickable_component_clicked(node: Node) -> void:
-	pass # Replace with function body.

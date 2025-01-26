@@ -1,0 +1,138 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4d5u8e63mpv8"]
+
+[ext_resource type="Script" path="res://LiquidTap/liquid_tap.gd" id="1_7dw1s"]
+[ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="2_fulan"]
+[ext_resource type="PackedScene" uid="uid://c43swkhwe4pr" path="res://Components/PlacableComponent/placable_component.tscn" id="3_a2pd5"]
+[ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="3_cnt5i"]
+[ext_resource type="Script" path="res://LiquidTap/LiquidButton/liquid_button.gd" id="3_lghm4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jq68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jhng"]
+size = Vector2(51, 56)
+
+[node name="Liquid Tap" type="Node2D" node_paths=PackedStringArray("cup_holder")]
+script = ExtResource("1_7dw1s")
+cup_holder = NodePath("CupPlace/PlacableComponent")
+
+[node name="TapBack" type="Sprite2D" parent="."]
+position = Vector2(93.5, 122.5)
+scale = Vector2(1.44531, 1.89844)
+texture = ExtResource("2_fulan")
+
+[node name="LiquidButton" type="Area2D" parent="."]
+position = Vector2(57, 69)
+script = ExtResource("3_lghm4")
+liquid_type = 0
+
+[node name="ClickableComponent" parent="LiquidButton" node_paths=PackedStringArray("area") instance=ExtResource("3_cnt5i")]
+area = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="LiquidButton"]
+scale = Vector2(0.162104, 0.162104)
+texture = ExtResource("2_fulan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiquidButton"]
+shape = SubResource("RectangleShape2D_4jq68")
+
+[node name="Label" type="Label" parent="LiquidButton"]
+offset_left = -22.0
+offset_top = -31.0
+offset_right = 66.0
+offset_bottom = -8.0
+scale = Vector2(0.5, 0.5)
+text = "Add energy"
+
+[node name="LiquidButton2" type="Area2D" parent="."]
+position = Vector2(129, 69)
+script = ExtResource("3_lghm4")
+liquid_type = 1
+
+[node name="ClickableComponent" parent="LiquidButton2" node_paths=PackedStringArray("area") instance=ExtResource("3_cnt5i")]
+area = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="LiquidButton2"]
+scale = Vector2(0.162104, 0.162104)
+texture = ExtResource("2_fulan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiquidButton2"]
+shape = SubResource("RectangleShape2D_4jq68")
+
+[node name="Label2" type="Label" parent="LiquidButton2"]
+offset_left = -22.0
+offset_top = -31.0
+offset_right = 66.0
+offset_bottom = -8.0
+scale = Vector2(0.5, 0.5)
+text = "Add blood"
+
+[node name="LiquidButton3" type="Area2D" parent="."]
+position = Vector2(57, 116)
+script = ExtResource("3_lghm4")
+liquid_type = 2
+
+[node name="ClickableComponent" parent="LiquidButton3" node_paths=PackedStringArray("area") instance=ExtResource("3_cnt5i")]
+area = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="LiquidButton3"]
+scale = Vector2(0.162104, 0.162104)
+texture = ExtResource("2_fulan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiquidButton3"]
+shape = SubResource("RectangleShape2D_4jq68")
+
+[node name="Label2" type="Label" parent="LiquidButton3"]
+offset_left = -22.0
+offset_top = -31.0
+offset_right = 66.0
+offset_bottom = -8.0
+scale = Vector2(0.5, 0.5)
+text = "Add energy"
+
+[node name="LiquidButton4" type="Area2D" parent="."]
+position = Vector2(130, 116)
+script = ExtResource("3_lghm4")
+liquid_type = 3
+
+[node name="ClickableComponent" parent="LiquidButton4" node_paths=PackedStringArray("area") instance=ExtResource("3_cnt5i")]
+area = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="LiquidButton4"]
+scale = Vector2(0.162104, 0.162104)
+texture = ExtResource("2_fulan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiquidButton4"]
+shape = SubResource("RectangleShape2D_4jq68")
+
+[node name="Label2" type="Label" parent="LiquidButton4"]
+offset_left = -22.0
+offset_top = -31.0
+offset_right = 66.0
+offset_bottom = -8.0
+scale = Vector2(0.5, 0.5)
+text = "Add coffee"
+
+[node name="CupPlace" type="Area2D" parent="."]
+position = Vector2(95, 186)
+
+[node name="ClickableComponent" parent="CupPlace" node_paths=PackedStringArray("area") instance=ExtResource("3_cnt5i")]
+area = NodePath("..")
+click_type = 2
+
+[node name="PlacableComponent" parent="CupPlace" node_paths=PackedStringArray("area") instance=ExtResource("3_a2pd5")]
+position = Vector2(-1, -1)
+area = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupPlace"]
+shape = SubResource("RectangleShape2D_1jhng")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(96, 224)
+scale = Vector2(0.664063, 0.164063)
+texture = ExtResource("2_fulan")
+
+[connection signal="clicked" from="LiquidButton/ClickableComponent" to="." method="pour"]
+[connection signal="clicked" from="LiquidButton2/ClickableComponent" to="." method="pour"]
+[connection signal="clicked" from="LiquidButton3/ClickableComponent" to="." method="pour"]
+[connection signal="clicked" from="LiquidButton4/ClickableComponent" to="." method="pour"]
+[connection signal="clicked" from="CupPlace/ClickableComponent" to="CupPlace/PlacableComponent" method="place_item"]

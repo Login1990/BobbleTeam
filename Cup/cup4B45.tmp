@@ -1,29 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://ble57rdjd4717"]
+[gd_scene load_steps=7 format=3 uid="uid://ble57rdjd4717"]
 
 [ext_resource type="Script" path="res://Cup/cup.gd" id="1_5e8uq"]
 [ext_resource type="Texture2D" uid="uid://cm4mnuj1egvdx" path="res://Dummy Assets/1_0000_Ice.png" id="2_xbhpc"]
 [ext_resource type="Texture2D" uid="uid://btues16q86dix" path="res://Dummy Assets/1_0002_Coffee.png" id="3_lmlf8"]
 [ext_resource type="Texture2D" uid="uid://l046e600shi1" path="res://Dummy Assets/1_0001_Cup.png" id="4_pysem"]
 [ext_resource type="PackedScene" uid="uid://co460tmte3fun" path="res://Components/ClickableComponent/ClickableComponent.tscn" id="5_u3t0t"]
-[ext_resource type="Texture2D" uid="uid://wyaxgyh5oi54" path="res://Dummy Assets/dummy_coffee_0002_Coffee.png" id="6_oa88l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3mwo"]
 size = Vector2(65, 94)
 
-[node name="Cup" type="Area2D" node_paths=PackedStringArray("liquids_node", "toppings_node", "milk_filter")]
+[node name="Cup" type="Node2D" node_paths=PackedStringArray("liquids_node", "toppings_node", "milk_filter")]
 script = ExtResource("1_5e8uq")
 liquids_node = NodePath("Liquids")
 toppings_node = NodePath("Topping")
 milk_filter = NodePath("Milk Filter")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_g3mwo")
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+scale = Vector2(0.1, 0.1)
+color = Color(1, 0, 1, 1)
+
+[node name="Milk Filter" type="Node2D" parent="."]
 
 [node name="Liquids" type="Node2D" parent="."]
 scale = Vector2(0.1, 0.1)
 
 [node name="COFFEE" type="Sprite2D" parent="Liquids"]
-visible = false
 position = Vector2(2, 79)
 texture = ExtResource("3_lmlf8")
 
@@ -31,20 +32,18 @@ texture = ExtResource("3_lmlf8")
 scale = Vector2(0.1, 0.1)
 
 [node name="ICE" type="Sprite2D" parent="Topping"]
-visible = false
 position = Vector2(1.49012e-08, 80)
 texture = ExtResource("2_xbhpc")
-
-[node name="ClickableComponent" parent="." node_paths=PackedStringArray("area") instance=ExtResource("5_u3t0t")]
-area = NodePath("..")
-set_global_held = true
-
-[node name="Milk Filter" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 8)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_oa88l")
 
 [node name="Cup" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_pysem")
+
+[node name="ClickableComponent" parent="." node_paths=PackedStringArray("area") instance=ExtResource("5_u3t0t")]
+area = NodePath("../Area2D")
+set_global_held = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_g3mwo")
