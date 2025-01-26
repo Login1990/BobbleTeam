@@ -6,3 +6,4 @@ func dump(_node: Node):
 	if held_item is Cup:
 		held_item.queue_free()
 		Global.emit_signal("dehighlight_placable_spots")
+		Global.emit_signal("re_enable_clickable")
