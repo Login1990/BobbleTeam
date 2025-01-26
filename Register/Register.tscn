@@ -1,13 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyiri3x476xy8"]
+[gd_scene load_steps=7 format=3 uid="uid://dyiri3x476xy8"]
 
 [ext_resource type="Script" path="res://Register/register.gd" id="1_prfok"]
+[ext_resource type="Texture2D" uid="uid://fls0g56qjey8" path="res://assets/art/register.jpg" id="2_edtcg"]
 [ext_resource type="PackedScene" uid="uid://4plg4i6xudpj" path="res://Register/ClientSpawner/client_spawner.tscn" id="2_i4kyc"]
+[ext_resource type="Texture2D" uid="uid://c86qd07w7h5ki" path="res://assets/art/characters/body/гг база.png" id="3_15s3c"]
+[ext_resource type="Texture2D" uid="uid://wcjow43frldt" path="res://assets/art/characters/face/сток лицо гг.png" id="4_fw08q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhher"]
-size = Vector2(140, 463)
+size = Vector2(272.5, 671.75)
 
 [node name="Register" type="Node2D"]
+position = Vector2(2, 10)
 script = ExtResource("1_prfok")
+
+[node name="Register" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960, 533)
+scale = Vector2(1.00104, 1.00926)
+texture = ExtResource("2_edtcg")
+
+[node name="Lili" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(781, 570)
+scale = Vector2(0.879167, 0.932407)
+texture = ExtResource("3_15s3c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lili"]
+texture = ExtResource("4_fw08q")
 
 [node name="ClientSpawner" parent="." instance=ExtResource("2_i4kyc")]
 
@@ -15,7 +34,7 @@ script = ExtResource("1_prfok")
 position = Vector2(555, 31)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(72, 236)
+position = Vector2(721, 656)
 shape = SubResource("RectangleShape2D_jhher")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

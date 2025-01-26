@@ -1,25 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://bme7xx8b1qeqs"]
 
-[ext_resource type="Texture2D" uid="uid://b87xxjx2u8d7u" path="res://assets/art/characters/talk_bubble/talk_bubble_1.jpg" id="1_t55q0"]
+[ext_resource type="Texture2D" uid="uid://krlcn5mgsr6g" path="res://assets/art/окно для текстаэ.png" id="1_b0qw1"]
 [ext_resource type="Script" path="res://Client/talk_bubble.gd" id="2_lcfwh"]
 [ext_resource type="FontFile" uid="uid://bs3e2abq8n82o" path="res://assets/font/Boxiest-Regular.ttf" id="3_2dr66"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hyooc"]
 
 [node name="TalkBubble" type="Sprite2D"]
-position = Vector2(2, 2)
-texture = ExtResource("1_t55q0")
+position = Vector2(9.00065, 859.5)
+scale = Vector2(6.25208, 7.71204)
+texture = ExtResource("1_b0qw1")
 script = ExtResource("2_lcfwh")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 material = SubResource("CanvasItemMaterial_hyooc")
-offset_left = -448.0
-offset_top = -510.0
-offset_right = 446.0
-offset_bottom = 480.0
+offset_left = -397.0
+offset_top = -313.0
+offset_right = 449.0
+offset_bottom = -88.0
 theme_override_fonts/normal_font = ExtResource("3_2dr66")
 bbcode_enabled = true
-text = "[font_size=90]Hey, cutie! I would like a fresh buuble tea on blood[/font_size]"
+text = "[font_size=80]Hey, cutie! I would like a fresh buuble tea on blood[/font_size]"
 visible_characters_behavior = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]

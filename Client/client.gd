@@ -21,8 +21,8 @@ func _physics_process(delta: float) -> void:
 		
 	
 func build():
-	body.texture = load("res://assets/art/characters/body/body_%s.jpg" % client_index)
-	face.texture = load("res://assets/art/characters/face/face_%s_neutral.jpg" % client_index)
+	body.texture = load("res://assets/art/characters/body/body_%s.png" % client_index)
+	face.texture = load("res://assets/art/characters/face/face_%s_neutral.png" % client_index)
 	talk_bubble.set_audio(client_index)
 	set_phase("WALK")
 	
