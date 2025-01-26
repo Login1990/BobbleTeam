@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://4plg4i6xudpj"]
 
-[ext_resource type="Script" path="res://Register/client_spawner.gd" id="1_hwpa8"]
+[ext_resource type="Script" path="res://Register/ClientSpawner/client_spawner.gd" id="1_hwpa8"]
 
 [node name="ClientSpawner" type="Node2D"]
 script = ExtResource("1_hwpa8")
