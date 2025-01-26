@@ -21,8 +21,9 @@ func _on_timer_timeout():
 	char_counter += 1
 	
 func _on_character_left():
-	spawn_character()
-	char_counter += 1
+	if (char_counter != 5):
+		spawn_character()
+		char_counter += 1
 	
 func spawn_character():
 	print()

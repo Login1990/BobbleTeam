@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf3y77n2mgomv"
+path="res://.godot/imported/GameJam intro.wav-d77165a3bb0a052af08c5b1e62ae15c2.sample"
+
+[deps]
+
+source_file="res://assets/music/GameJam intro.wav"
+dest_files=["res://.godot/imported/GameJam intro.wav-d77165a3bb0a052af08c5b1e62ae15c2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
