@@ -25,7 +25,7 @@ position = Vector2(781, 570)
 scale = Vector2(0.879167, 0.932407)
 texture = ExtResource("3_15s3c")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lili"]
+[node name="Face" type="Sprite2D" parent="Lili"]
 texture = ExtResource("4_fw08q")
 
 [node name="ClientSpawner" parent="." instance=ExtResource("2_i4kyc")]

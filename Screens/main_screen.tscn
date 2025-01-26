@@ -75,10 +75,16 @@ visible = false
 [node name="CollisionShape2D" parent="Liquid Tap/LiquidButton" index="2"]
 position = Vector2(-1, 0)
 
+[node name="Label" parent="Liquid Tap/LiquidButton" index="3"]
+visible = false
+
 [node name="LiquidButton2" parent="Liquid Tap" index="2"]
 position = Vector2(76, -8)
 
 [node name="Sprite2D" parent="Liquid Tap/LiquidButton2" index="1"]
+visible = false
+
+[node name="Label2" parent="Liquid Tap/LiquidButton2" index="3"]
 visible = false
 
 [node name="LiquidButton3" parent="Liquid Tap" index="3"]
@@ -88,12 +94,16 @@ position = Vector2(122, -8)
 visible = false
 
 [node name="Label2" parent="Liquid Tap/LiquidButton3" index="3"]
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="LiquidButton4" parent="Liquid Tap" index="4"]
 position = Vector2(168, -8)
 
 [node name="Sprite2D" parent="Liquid Tap/LiquidButton4" index="1"]
+visible = false
+
+[node name="Label2" parent="Liquid Tap/LiquidButton4" index="3"]
 visible = false
 
 [node name="CupPlace" parent="Liquid Tap" index="5"]

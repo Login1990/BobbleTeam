@@ -16,7 +16,7 @@ var phrases = {
 	0: {
 		"ORDER": ["[font_size=90]Ah! A human! How refreshing.[/font_size]", "[font_size=70]Good day to you! Or… good night? Hard to say in here, isn’t it?[/font_size]",
 		"[font_size=70]I’ll have your... hmm 'Boba Tea'. But, you know, no blood—fruit flavors only.[/font_size]"],
-		"WRONG": ["[font_size=70]YOU KIDDING! I AM BLOOD INTOLERANCE![/font_size]"],
+		"WRONG": ["[font_size=70]YOU KIDDING! I AM BLOOD INTOLERANT![/font_size]"],
 		"CORRECT": ["[font_size=60]IT IS THE BEST DRINK I HAD IN 300 YEARS! THANK YOU![/font_size]"]
 	},
 	1: {

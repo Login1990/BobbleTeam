@@ -16,11 +16,14 @@ func _ready() -> void:
 
 func recieve_drink(drink:Cup):
 	var ingr = drinks[client_index]
-	print("LETSGOOOOO")
+	#face.texture = null
 	if drink.liquid == ingr[0] and drink.topping_array == ingr[1]:
-		talk_bubble.set_speak_phase("CORRECT") 
+		talk_bubble.set_speak_phase("CORRECT")
+		face.texture = load("res://assets/art/characters/face/face_1_happy.png")
 	else:
+		print("wrong")
 		talk_bubble.set_speak_phase("WRONG")
+		face.texture = load("res://assets/art/characters/face/face_1_angry.png")
 	talk_bubble.next()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

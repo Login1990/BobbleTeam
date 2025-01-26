@@ -28,3 +28,7 @@ display_server/size/mode=0
 [global_group]
 
 Cup="Only cups allowed"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
