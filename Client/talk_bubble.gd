@@ -14,9 +14,10 @@ var char_audio = {
 }
 var phrases = {
 	0: {
-		"ORDER": ["[font_size=90]I like penis[/font_size]","[font_size=90]I milky[/font_size]"],
-		"WRONG": ["[font_size=90]YOU KIDDING[/font_size]"],
-		"CORRECT": ["[font_size=90]OH MY[/font_size]"]
+		"ORDER": ["[font_size=90]Ah! A human! How refreshing.[/font_size]", "[font_size=70]Good day to you! Or… good night? Hard to say in here, isn’t it?[/font_size]",
+		"[font_size=70]I’ll have your... hmm 'Boba Tea'. But, you know, no blood—fruit flavors only.[/font_size]"],
+		"WRONG": ["[font_size=70]YOU KIDDING! I AM BLOOD INTOLERANCE![/font_size]"],
+		"CORRECT": ["[font_size=60]IT IS THE BEST DRINK I HAD IN 300 YEARS! THANK YOU![/font_size]"]
 	},
 	1: {
 		"ORDER": ["[font_size=90]I like penis[/font_size]","I milky[/font_size]"],
@@ -60,6 +61,7 @@ func next():
 
 	text_index += 1
 	if text_index == phrases[char_index][speak_phase].size():
+		
 		text_index = 0
 	tween.finished.connect(_on_tween_finished)
 	
