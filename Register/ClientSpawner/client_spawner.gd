@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var my_timer = $Timer
-@onready var parent_path = "."
+@onready var parent_path = get_tree().root
 var char_counter = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +28,8 @@ func spawn_character():
 	print()
 	var character = ResourceLoader.load("res://Client/Client.tscn")
 	var inst_char = character.instantiate()
-	add_child(inst_char)
+	parent_path.add_child(inst_char)
+	get_parent().client = inst_char
 	inst_char.client_index = char_counter
 	inst_char.position = Vector2(1370, 500)
 	inst_char.build()

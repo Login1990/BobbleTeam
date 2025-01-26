@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BobbleTea"
-run/main_scene="res://Client/Client.tscn"
+run/main_scene="res://Register/Register.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
