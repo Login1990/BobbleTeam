@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv5sumo8tprxh"]
+[gd_scene load_steps=13 format=3 uid="uid://dv5sumo8tprxh"]
 
 [ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="1_o8cp5"]
 [ext_resource type="Texture2D" uid="uid://crkjgb1sh0jij" path="res://assets/background/kitchen_color.jpg" id="1_qrhv1"]
+[ext_resource type="PackedScene" uid="uid://dyiri3x476xy8" path="res://Register/Register.tscn" id="1_qwkji"]
 [ext_resource type="Script" path="res://Screens/CameraController/camera_controller.gd" id="2_l77n0"]
 [ext_resource type="AudioStream" uid="uid://wja33sjb8ndo" path="res://assets/music/GameJam with effect.wav" id="3_8c0h0"]
 [ext_resource type="PackedScene" uid="uid://d4d5u8e63mpv8" path="res://LiquidTap/liquid_tap.tscn" id="4_v5kjy"]
@@ -16,6 +17,8 @@ size = Vector2(226, 235)
 
 [node name="MainScreen" type="Node2D"]
 
+[node name="Register" parent="." instance=ExtResource("1_qwkji")]
+
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(2880, 542)
 texture = ExtResource("1_qrhv1")
@@ -26,32 +29,23 @@ position = Vector2(2883.01, 540)
 scale = Vector2(14.9766, 8.39158)
 texture = ExtResource("1_o8cp5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(962.5, 540.061)
-scale = Vector2(14.9766, 8.39158)
-texture = ExtResource("1_o8cp5")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(1303, 298)
-texture = ExtResource("1_o8cp5")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
 [node name="ScreenToRightButton" type="Button" parent="."]
-offset_left = 1760.0
-offset_top = 543.0
-offset_right = 1882.0
-offset_bottom = 665.0
+offset_left = 1769.0
+offset_top = 19.0
+offset_right = 1891.0
+offset_bottom = 141.0
 mouse_filter = 1
 icon = ExtResource("1_o8cp5")
 expand_icon = true
 
 [node name="ScreenToLeftButton" type="Button" parent="."]
 offset_left = 1961.0
-offset_top = 538.0
+offset_top = 22.0
 offset_right = 2083.0
-offset_bottom = 660.0
+offset_bottom = 144.0
 mouse_filter = 1
 icon = ExtResource("1_o8cp5")
 expand_icon = true
@@ -166,6 +160,7 @@ autoplay = true
 
 [node name="AudioStreamPlayerRegister" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yqowu")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="pressed" from="ScreenToRightButton" to="CameraController" method="switch_to_right"]

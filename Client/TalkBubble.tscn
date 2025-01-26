@@ -24,6 +24,7 @@ text = "[font_size=80]Hey, cutie! I would like a fresh buuble tea on blood[/font
 visible_characters_behavior = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+volume_db = 15.0
 autoplay = true
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
