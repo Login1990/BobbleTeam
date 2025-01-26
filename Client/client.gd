@@ -17,9 +17,8 @@ func _physics_process(delta: float) -> void:
 		position.x -= delta * SPEED
 		position.y += 2 * sin(0.02 * position.x)
 	elif phase == "TALK":
-		talk_bubble.visible = true
-		talk_bubble.speak = true
-		print("hi i want bloody tea with eyes of murder")
+		pass
+		
 	
 func build():
 	body.texture = load("res://assets/art/characters/body/body_%s.jpg" % client_index)
@@ -31,3 +30,10 @@ func set_phase(faza):
 	
 func stop():
 	set_phase("TALK")
+	talk_bubble.visible = true
+	talk_bubble.speak = true
+	talk_bubble.next()
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if phase == "TALK" and event is InputEventMouseButton and event.pressed:
+		talk_bubble.next()
