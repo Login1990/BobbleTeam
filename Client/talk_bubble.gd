@@ -44,7 +44,8 @@ func _process(delta: float) -> void:
 		#var tween: Tween = create_tween()
 		#tween.tween_property(text, "visible_characters", text.get_total_character_count(), 0.01 * text.get_total_character_count())
 		
-func set_speak_phase(phase: int):	
+func set_speak_phase(phase):	
+	print(phase)
 	speak_phase = phase	
 	text_index = 0
 	
@@ -53,6 +54,7 @@ func set_audio(char_index):
 
 func next():
 	text.clear()
+	print(speak_phase)
 	text.append_text(phrases[char_index][speak_phase][text_index])
 	text.visible_characters = 0
 	var tween: Tween = create_tween()
