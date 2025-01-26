@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv5sumo8tprxh"]
+[gd_scene load_steps=5 format=3 uid="uid://dv5sumo8tprxh"]
 
 [ext_resource type="Texture2D" uid="uid://bww61guniaxah" path="res://icon.svg" id="1_o8cp5"]
 [ext_resource type="Script" path="res://Screens/CameraController/camera_controller.gd" id="2_l77n0"]
+[ext_resource type="AudioStream" uid="uid://wja33sjb8ndo" path="res://assets/music/GameJam with effect.wav" id="3_8c0h0"]
+[ext_resource type="AudioStream" uid="uid://bhy76xf0wp3ug" path="res://assets/music/GameJam without effect.wav" id="4_yqowu"]
 
 [node name="MainScreen" type="Node2D"]
 
@@ -39,9 +41,20 @@ mouse_filter = 1
 icon = ExtResource("1_o8cp5")
 expand_icon = true
 
-[node name="CameraController" type="Node" parent="." node_paths=PackedStringArray("camera")]
+[node name="CameraController" type="Node" parent="." node_paths=PackedStringArray("camera", "kitchenMusic", "registerMusic")]
 script = ExtResource("2_l77n0")
 camera = NodePath("../Camera2D")
+kitchenMusic = NodePath("../AudioStreamPlayerKitchen")
+registerMusic = NodePath("../AudioStreamPlayerRegister")
+
+[node name="AudioStreamPlayerKitchen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8c0h0")
+volume_db = -80.0
+autoplay = true
+
+[node name="AudioStreamPlayerRegister" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yqowu")
+autoplay = true
 
 [connection signal="pressed" from="ScreenToRightButton" to="CameraController" method="switch_to_right"]
 [connection signal="pressed" from="ScreenToLeftButton" to="CameraController" method="switch_to_left"]
