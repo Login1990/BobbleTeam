@@ -34,5 +34,11 @@ self_modulate = Color(0.158419, 0.0698837, 0.0153934, 1)
 position = Vector2(301.111, 56.6667)
 shape = SubResource("RectangleShape2D_1ockf")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(318.717, 75.9589)
+scale = Vector2(-26.7817, 45.1145)
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="leave" from="TalkBubble" to="." method="_on_talk_bubble_leave"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
