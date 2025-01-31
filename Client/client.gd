@@ -31,9 +31,9 @@ func _physics_process(delta: float) -> void:
 	if phase == "WALK":
 		position.x -= delta * SPEED
 		position.y += 2 * sin(0.02 * position.x)
-	elif phase == "TALK":
-		pass
-		
+	elif phase == "LEAVE":
+		position.x += delta * SPEED
+		position.y += 2 * sin(0.02 * position.x)
 	
 func build():
 	body.texture = load("res://assets/art/characters/body/body_%s.png" % client_index)
@@ -53,3 +53,15 @@ func stop():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if phase == "TALK" and event is InputEventMouseButton and event.pressed:
 		talk_bubble.next()
+
+
+func _on_talk_bubble_leave() -> void:
+	set_phase("LEAVE")
+	talk_bubble.visible = false
+	
+	
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	if phase == "LEAVE":
+		queue_free()

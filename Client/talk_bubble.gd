@@ -1,5 +1,7 @@
 extends Sprite2D
 
+signal leave
+
 @onready var text = $RichTextLabel
 var speak = false
 @onready var audio = $AudioStreamPlayer2D
@@ -53,24 +55,25 @@ func set_audio(char_index):
 	audio.stream = load(char_audio[char_index])
 
 func next():
-	text.clear()
-	print(speak_phase)
-	text.append_text(phrases[char_index][speak_phase][text_index])
-	text.visible_characters = 0
-	var tween: Tween = create_tween()
-	audio.playing = true
-	tween.tween_property(text, "visible_characters", text.get_total_character_count() * 2, 0.2 * text.get_total_character_count())
+	if speak_phase == "LEAVE":
+		leave.emit()
+	else:
+		text.clear()
+		text.append_text(phrases[char_index][speak_phase][text_index])
+		text.visible_characters = 0
+		var tween: Tween = create_tween()
+		audio.playing = true
+		tween.tween_property(text, "visible_characters", text.get_total_character_count() * 2, 0.2 * text.get_total_character_count())
 
-	text_index += 1
-	if text_index == phrases[char_index][speak_phase].size():
-		
-		text_index = 0
-	tween.finished.connect(_on_tween_finished)
+		text_index += 1
+		if text_index == phrases[char_index][speak_phase].size():
+			text_index = 0
+			if speak_phase == "CORRECT":
+				set_speak_phase("LEAVE")
+		tween.finished.connect(_on_tween_finished)
 	
 func _on_tween_finished():
-	pass
 	audio.stop()
-	
 
 func _on_audio_stream_player_2d_finished() -> void:
 	audio.play()
