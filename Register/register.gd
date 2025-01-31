@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	pass
 
 func recieve_drink(drink:Cup):
-	if client:
+	if client != null:
 		print(drink.toppings_node)
 		client.recieve_drink(drink)
 	
